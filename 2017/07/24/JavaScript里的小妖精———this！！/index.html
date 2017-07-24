@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="好多天花乱坠的梦想，还没有实现">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Code of fairy">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="关于this指向这个问题，活生生折磨了我一个下午，回来静下心捋顺一下，总结出来一下规律。  当然，this这个复杂的问题不是一句两句可以说清楚，作为菜鸟，我的总结也就是为了做一些 ‘坑人的’ 笔试题，所以只能欢迎吐槽了。  ####题中一般分为两种情况  调用者是函数 函数通过对象被调用（this指向对象 ） 函数单独被调用（this指向undefined，非严格模式下指向全局）   调用者是对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript里的小妖精———this！！">
+<meta property="og:url" content="http://yoursite.com/2017/07/24/JavaScript里的小妖精———this！！/index.html">
 <meta property="og:site_name" content="Code of fairy">
-<meta property="og:description" content="好多天花乱坠的梦想，还没有实现">
+<meta property="og:description" content="关于this指向这个问题，活生生折磨了我一个下午，回来静下心捋顺一下，总结出来一下规律。  当然，this这个复杂的问题不是一句两句可以说清楚，作为菜鸟，我的总结也就是为了做一些 ‘坑人的’ 笔试题，所以只能欢迎吐槽了。  ####题中一般分为两种情况  调用者是函数 函数通过对象被调用（this指向对象 ） 函数单独被调用（this指向undefined，非严格模式下指向全局）   调用者是对象">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-24T11:22:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code of fairy">
-<meta name="twitter:description" content="好多天花乱坠的梦想，还没有实现">
+<meta name="twitter:title" content="JavaScript里的小妖精———this！！">
+<meta name="twitter:description" content="关于this指向这个问题，活生生折磨了我一个下午，回来静下心捋顺一下，总结出来一下规律。  当然，this这个复杂的问题不是一句两句可以说清楚，作为菜鸟，我的总结也就是为了做一些 ‘坑人的’ 笔试题，所以只能欢迎吐槽了。  ####题中一般分为两种情况  调用者是函数 函数通过对象被调用（this指向对象 ） 函数单独被调用（this指向undefined，非严格模式下指向全局）   调用者是对象">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/24/JavaScript里的小妖精———this！！/"/>
 
 
 
 
 
-  <title>Code of fairy</title>
+  <title>JavaScript里的小妖精———this！！ | Code of fairy</title>
   
 
 
@@ -161,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,9 +245,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -274,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/JavaScript里的小妖精———this！！/" itemprop="url">JavaScript里的小妖精———this！！</a></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript里的小妖精———this！！</h1>
         
 
         <div class="post-meta">
@@ -323,9 +320,7 @@
       
 
       
-        
-          
-            <p>关于<strong>this指向</strong>这个问题，活生生折磨了我一个下午，回来静下心捋顺一下，总结出来一下规律。</p>
+        <p>关于<strong>this指向</strong>这个问题，活生生折磨了我一个下午，回来静下心捋顺一下，总结出来一下规律。</p>
 <p> <code>当然，this这个复杂的问题不是一句两句可以说清楚，作为菜鸟，我的总结也就是为了做一些 ‘坑人的’ 笔试题，所以只能欢迎吐槽了。</code></p>
 <hr>
 <p>####<em>题中一般分为两种情况</em></p>
@@ -369,20 +364,27 @@
 <li>apply的其他参数以数组形式传递。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function fn(a,b,c) &#123;</div><div class="line">    console.log(this.a + a + b + c);</div><div class="line">&#125;</div><div class="line">var obj = &#123;</div><div class="line">    a: 20</div><div class="line">&#125;</div><div class="line">fn.call(obj, 10, 20, 30);//【80】</div><div class="line">fn.apply(obj, [100, 200, 300]);//【620】</div></pre></td></tr></table></figure></li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -390,132 +392,38 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/llw/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="二璇妹妹">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code of fairy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/llw/" itemprop="url">llw</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T19:01:00+08:00">
-                2017-07-24
-              </time>
+              <a href="/2017/07/24/llw/" rel="next" title="llw">
+                <i class="fa fa-chevron-left"></i> llw
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -523,6 +431,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -701,10 +613,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
